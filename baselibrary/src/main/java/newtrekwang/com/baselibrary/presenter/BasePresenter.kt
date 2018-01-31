@@ -5,7 +5,7 @@ import newtrekwang.com.baselibrary.presenter.view.BaseView
 /**
  * Created by dell on 2018/1/30.
  */
-class BasePresenter<T: BaseView> {
+open class BasePresenter<T: BaseView> {
     lateinit var mView: T
 
 }
