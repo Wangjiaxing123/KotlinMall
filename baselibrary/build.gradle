@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
-
+apply plugin: "kotlin-kapt"
 android {
     compileSdkVersion 26
 
@@ -35,17 +35,29 @@ dependencies {
     api 'com.android.support.constraint:constraint-layout:1.0.2'
 
     // Anko Commons
-    compile "org.jetbrains.anko:anko-commons:$anko_version"
+    api "org.jetbrains.anko:anko-commons:$anko_version"
     // Support-v4 (only Anko Commons)
-    compile "org.jetbrains.anko:anko-support-v4-commons:$anko_version"
+    api "org.jetbrains.anko:anko-support-v4-commons:$anko_version"
+    // RxKotlin and RxAndroid
+    api "io.reactivex:rxkotlin:$rx_kotlin_version"
+    api "io.reactivex:rxandroid:$rx_android_version"
 
-    // Anko Layouts  sdk15, sdk19, sdk21, sdk23 are also available
-    compile "org.jetbrains.anko:anko-sdk25:$anko_version"
-    compile "org.jetbrains.anko:anko-appcompat-v7:$anko_version"
 
-    // Coroutine listeners for Anko Layouts
-    compile "org.jetbrains.anko:anko-sdk25-coroutines:$anko_version"
-    compile "org.jetbrains.anko:anko-appcompat-v7-coroutines:$anko_version"
+    api "com.squareup.okhttp3:okhttp:$ok_http_version"
+    api "com.squareup.retrofit2:retrofit:$retrofit_version"
+    api "com.squareup.okhttp3:logging-interceptor:$ok_http_version"
+    api "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    api "com.squareup.retrofit2:adapter-rxjava:$retrofit_version"
+
+    api "com.google.dagger:dagger:$dagger2_version"
+    kapt "com.google.dagger:dagger-compiler:$dagger2_version"
+//    // Anko Layouts  sdk15, sdk19, sdk21, sdk23 are also available
+//    compile "org.jetbrains.anko:anko-sdk25:$anko_version"
+//    compile "org.jetbrains.anko:anko-appcompat-v7:$anko_version"
+//
+//    // Coroutine listeners for Anko Layouts
+//    compile "org.jetbrains.anko:anko-sdk25-coroutines:$anko_version"
+//    compile "org.jetbrains.anko:anko-appcompat-v7-coroutines:$anko_version"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'

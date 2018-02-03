@@ -11,6 +11,15 @@ buildscript {
     ext.kotlin_version = '1.1.50'
     ext.anko_version = '0.10.1'
 
+
+    ext.rx_kotlin_version = '1.0.0'
+    ext.rx_android_version = '1.2.1'
+
+    ext.ok_http_version ='3.9.1'
+    ext.retrofit_version = '2.3.0'
+
+    ext.dagger2_version = '2.14.1'
+
     repositories {
         google()
         jcenter()
