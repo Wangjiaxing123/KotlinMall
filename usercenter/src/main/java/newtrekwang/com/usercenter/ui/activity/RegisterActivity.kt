@@ -7,6 +7,7 @@ import newtrekwang.com.baselibrary.ui.activity.BaseMvpActivity
 import newtrekwang.com.usercenter.R
 import newtrekwang.com.usercenter.injection.component.DaggerUserComponent
 import newtrekwang.com.usercenter.injection.module.UserModule
+
 import newtrekwang.com.usercenter.presenter.RegisterPresenter
 import newtrekwang.com.usercenter.presenter.view.RegisterView
 
@@ -34,7 +35,11 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(),RegisterView {
     }
 
     private fun initInjection() {
+        DaggerUserComponent.builder()
+                .activityComponent(activityComponent)
+                .userModule(UserModule())
+                .build()
+                .inject(this)
 
-            DaggerUserComponent.builder().userModule(UserModule()).build().inject(this)
     }
 }

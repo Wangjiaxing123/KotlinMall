@@ -1,6 +1,8 @@
 package newtrekwang.com.usercenter.injection.component
 
 import dagger.Component
+import newtrekwang.com.baselibrary.injection.component.ActivityComponent
+import newtrekwang.com.usercenter.injection.PerComponentScope
 import newtrekwang.com.usercenter.injection.module.UserModule
 import newtrekwang.com.usercenter.presenter.RegisterPresenter
 import newtrekwang.com.usercenter.ui.activity.RegisterActivity
@@ -9,9 +11,9 @@ import newtrekwang.com.usercenter.ui.activity.RegisterActivity
  * Created by WJX on 2018/2/3.
  *
  */
-@Component(modules = arrayOf(UserModule::class))
+@PerComponentScope
+@Component(dependencies = arrayOf(ActivityComponent::class),modules = arrayOf(UserModule::class))
 interface UserComponent {
-
 fun  inject(activity:RegisterActivity)
 
 }

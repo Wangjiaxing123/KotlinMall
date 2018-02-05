@@ -11,7 +11,6 @@ import newtrekwang.com.usercenter.service.impl.UserServiceImpl
  */
 @Module
 class UserModule {
-
     @Provides
     fun providesUserService (service: UserServiceImpl):UserService{
         return service
