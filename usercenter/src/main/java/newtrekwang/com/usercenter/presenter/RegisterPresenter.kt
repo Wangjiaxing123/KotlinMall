@@ -1,5 +1,6 @@
 package newtrekwang.com.usercenter.presenter
 
+import com.trello.rxlifecycle.LifecycleProvider
 import newtrekwang.com.baselibrary.ext.execute
 import newtrekwang.com.baselibrary.presenter.BasePresenter
 import newtrekwang.com.baselibrary.rx.BaseSubscriber
@@ -16,6 +17,9 @@ class RegisterPresenter @Inject constructor() :BasePresenter<RegisterView>(){
     @Inject
     lateinit var userService: UserService
 
+    @Inject
+    lateinit var lifecycleProvider: LifecycleProvider<*>
+
     fun register(mobile: String,vertify: String,pwd: String){
 
         userService.register(mobile,vertify,pwd)
@@ -25,7 +29,7 @@ class RegisterPresenter @Inject constructor() :BasePresenter<RegisterView>(){
                             mView.onRegisterResult(t)
                         }
                     }
-                })
+                },lifecycleProvider)
 
     }
 }

@@ -14,6 +14,6 @@ import newtrekwang.com.usercenter.ui.activity.RegisterActivity
 @PerComponentScope
 @Component(dependencies = arrayOf(ActivityComponent::class),modules = arrayOf(UserModule::class))
 interface UserComponent {
-fun  inject(activity:RegisterActivity)
+    fun  inject(activity:RegisterActivity)
 
 }
