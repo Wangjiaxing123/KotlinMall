@@ -1,4 +1,4 @@
-package newtrekwang.com.baselibrary.ui.activity
+package newtrekwang.com.baselibrary.ui.fragment
 
 import android.os.Bundle
 import newtrekwang.com.baselibrary.common.BaseApplication
@@ -13,7 +13,7 @@ import javax.inject.Inject
 /**
  * Created by dell on 2018/1/30.
  */
-abstract class BaseMvpActivity<T: BasePresenter<*>> :BaseActivity(),BaseView {
+abstract class BaseMvpFragment<T: BasePresenter<*>> :BaseFragment(),BaseView {
     override fun onError() {
 
     }
@@ -43,8 +43,8 @@ abstract class BaseMvpActivity<T: BasePresenter<*>> :BaseActivity(),BaseView {
     lateinit var activityComponent: ActivityComponent
 // 初始化activity级别的注入器
     private fun initActivityInjection() {
-        activityComponent = DaggerActivityComponent.builder().appComponent((application as BaseApplication).appComponent)
-                .activityModule(ActivityModule(this))
+        activityComponent = DaggerActivityComponent.builder().appComponent((activity.application as BaseApplication).appComponent)
+                .activityModule(ActivityModule(activity))
                 .lifeCycleComponentMudule(LifeCycleComponentMudule(this))
                 .build()
     }
