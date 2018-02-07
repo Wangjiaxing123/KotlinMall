@@ -8,6 +8,7 @@ import newtrekwang.com.baselibrary.injection.module.ActivityModule
 import newtrekwang.com.baselibrary.injection.module.LifeCycleComponentMudule
 import newtrekwang.com.baselibrary.presenter.BasePresenter
 import newtrekwang.com.baselibrary.presenter.view.BaseView
+import newtrekwang.com.baselibrary.widgets.ProgressDialog
 import javax.inject.Inject
 
 /**
@@ -19,20 +20,24 @@ abstract class BaseMvpActivity<T: BasePresenter<*>> :BaseActivity(),BaseView {
     }
 
     override fun showLoading() {
-
+        loadingDialog.showLoading()
     }
 
     override fun hideLoading() {
-
+        loadingDialog.hideLoading()
     }
 
     @Inject
     lateinit var  mPresenter: T
 
+    private lateinit var loadingDialog: ProgressDialog
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initActivityInjection()
         initInjection()
+
+        loadingDialog = ProgressDialog.create(this)
     }
 
     /**

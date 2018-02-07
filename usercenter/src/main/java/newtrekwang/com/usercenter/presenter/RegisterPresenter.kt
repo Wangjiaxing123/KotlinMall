@@ -22,8 +22,10 @@ class RegisterPresenter @Inject constructor() :BasePresenter<RegisterView>(){
 
     fun register(mobile: String,vertify: String,pwd: String){
 
+        mView.showLoading()
+
         userService.register(mobile,vertify,pwd)
-                .execute(object :BaseSubscriber<Boolean>(){
+                .execute(object :BaseSubscriber<Boolean>(mView){
                     override fun onNext(t: Boolean) {
                         if(t != null&& t){
                             mView.onRegisterResult("注册成功！")
