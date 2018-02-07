@@ -7,6 +7,6 @@ package newtrekwang.com.baselibrary.common
 class BaseConstant {
 
     companion object {
-        val SERVER_ADDRESS = "http://192.168.1.16:80/"
+        val SERVER_ADDRESS = "http://192.168.1.16:8080/"
     }
 }

@@ -11,7 +11,7 @@ import rx.functions.Func1
 class  BaseFuncBoolean: Func1<BaseResp<*>,Observable<Boolean>> {
     override fun call(t: BaseResp<*>): Observable<Boolean> {
       return  when(t.status){
-            200 -> Observable.just(true)
+            0 -> Observable.just(true)
             else -> Observable.error(BaseException(status = t.status,msg = t.message))
         }
     }
