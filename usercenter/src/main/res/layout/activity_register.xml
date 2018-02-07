@@ -6,7 +6,12 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context="newtrekwang.com.usercenter.ui.activity.RegisterActivity">
-
+<newtrekwang.com.baselibrary.widgets.HeaderBar
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:isShowBack="true"
+    app:centerTitleText="注册"
+    ></newtrekwang.com.baselibrary.widgets.HeaderBar>
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="horizontal"
