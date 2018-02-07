@@ -1,6 +1,7 @@
 package newtrekwang.com.baselibrary.ui.activity
 
 import android.os.Bundle
+import android.widget.Toast
 import newtrekwang.com.baselibrary.common.BaseApplication
 import newtrekwang.com.baselibrary.injection.component.ActivityComponent
 import newtrekwang.com.baselibrary.injection.component.DaggerActivityComponent
@@ -25,6 +26,10 @@ abstract class BaseMvpActivity<T: BasePresenter<*>> :BaseActivity(),BaseView {
 
     override fun hideLoading() {
         loadingDialog.hideLoading()
+    }
+
+    override fun showToast(str: String) {
+        Toast.makeText(this,str,Toast.LENGTH_SHORT).show()
     }
 
     @Inject

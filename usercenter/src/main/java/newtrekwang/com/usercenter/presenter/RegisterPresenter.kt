@@ -1,5 +1,6 @@
 package newtrekwang.com.usercenter.presenter
 
+import android.content.Context
 import com.trello.rxlifecycle.LifecycleProvider
 import newtrekwang.com.baselibrary.ext.execute
 import newtrekwang.com.baselibrary.presenter.BasePresenter
@@ -20,7 +21,14 @@ class RegisterPresenter @Inject constructor() :BasePresenter<RegisterView>(){
     @Inject
     lateinit var lifecycleProvider: LifecycleProvider<*>
 
+    @Inject
+    lateinit var context:Context
+
     fun register(mobile: String,vertify: String,pwd: String){
+        if (!canUseNetWord(context)){
+            mView.showToast("网络不可用！")
+            return
+        }
 
         mView.showLoading()
 
