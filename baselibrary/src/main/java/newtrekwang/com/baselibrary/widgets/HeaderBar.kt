@@ -1,9 +1,11 @@
 package newtrekwang.com.baselibrary.widgets
 
+import android.app.Activity
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.widget.FrameLayout
+import android.widget.TextView
 import newtrekwang.com.baselibrary.R
 
 import kotlinx.android.synthetic.main.layout_header_bar.view.*
@@ -38,5 +40,15 @@ class HeaderBar @JvmOverloads constructor(
             mRightTv.text = it
             mRightTv.visibility = View.VISIBLE
         }
+
+        mLeftIv.setOnClickListener {
+            if (context is Activity){
+                (context as Activity).finish()
+            }
+        }
+    }
+
+    fun getRightView(): TextView{
+        return mRightTv
     }
 }
