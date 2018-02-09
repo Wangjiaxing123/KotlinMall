@@ -12,9 +12,13 @@ open class  BaseSubscriber<T> (val baseView: BaseView):Subscriber<T>(){
         baseView.hideLoading()
     }
 
-    override fun onError(e: Throwable?) {
+    override fun onError(e: Throwable) {
         baseView.hideLoading()
-
+        if (e is BaseException){//自定义的异常
+            baseView.onError(e.msg)
+        }else{
+            baseView.onError(e.message.toString())
+        }
     }
 
     override fun onNext(t: T) {

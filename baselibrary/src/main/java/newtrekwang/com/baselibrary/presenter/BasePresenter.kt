@@ -1,8 +1,8 @@
 package newtrekwang.com.baselibrary.presenter
 
 import android.content.Context
-import com.kotlin.base.utils.NetWorkUtils
 import newtrekwang.com.baselibrary.presenter.view.BaseView
+import newtrekwang.com.baselibrary.utils.NetWorkUtils
 
 /**
  * Created by dell on 2018/1/30.

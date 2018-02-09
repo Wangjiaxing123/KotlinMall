@@ -1,4 +1,5 @@
-package com.kotlin.base.ui.adapter
+package newtrekwang.com.baselibrary.ui.adapter
+
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
