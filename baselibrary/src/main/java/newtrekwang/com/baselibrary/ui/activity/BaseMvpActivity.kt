@@ -10,14 +10,15 @@ import newtrekwang.com.baselibrary.injection.module.LifeCycleComponentMudule
 import newtrekwang.com.baselibrary.presenter.BasePresenter
 import newtrekwang.com.baselibrary.presenter.view.BaseView
 import newtrekwang.com.baselibrary.widgets.ProgressDialog
+import org.jetbrains.anko.toast
 import javax.inject.Inject
 
 /**
  * Created by dell on 2018/1/30.
  */
 abstract class BaseMvpActivity<T: BasePresenter<*>> :BaseActivity(),BaseView {
-    override fun onError() {
-
+    override fun onError(text:String) {
+        showToast(text)
     }
 
     override fun showLoading() {
@@ -29,7 +30,7 @@ abstract class BaseMvpActivity<T: BasePresenter<*>> :BaseActivity(),BaseView {
     }
 
     override fun showToast(str: String) {
-        Toast.makeText(this,str,Toast.LENGTH_SHORT).show()
+        toast(str)
     }
 
     @Inject

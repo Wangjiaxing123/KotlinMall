@@ -27,6 +27,9 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(),RegisterView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
         mPresenter.mView = this
+        mVerifyCodeBtn.onClick {
+            mVerifyCodeBtn.requestSendVerifyNumber()
+        }
        mRegistBtn.onClick {
            mPresenter.register(mMobileEt.text.toString(),mVerifyCodeEt.text.toString(),mPwdEt.text.toString())
        }

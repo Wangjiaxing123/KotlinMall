@@ -7,7 +7,6 @@ import newtrekwang.com.baselibrary.presenter.BasePresenter
 import newtrekwang.com.baselibrary.rx.BaseSubscriber
 import newtrekwang.com.usercenter.presenter.view.RegisterView
 import newtrekwang.com.usercenter.service.UserService
-import newtrekwang.com.usercenter.service.impl.UserServiceImpl
 import javax.inject.Inject
 
 /**
@@ -25,10 +24,8 @@ class RegisterPresenter @Inject constructor() :BasePresenter<RegisterView>(){
     lateinit var context:Context
 
     fun register(mobile: String,vertify: String,pwd: String){
-        if (!canUseNetWord(context)){
-            mView.showToast("网络不可用！")
-            return
-        }
+
+        canUseNetWork(context)
 
         mView.showLoading()
 

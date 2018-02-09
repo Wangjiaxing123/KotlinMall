@@ -8,13 +8,14 @@ import newtrekwang.com.baselibrary.injection.module.ActivityModule
 import newtrekwang.com.baselibrary.injection.module.LifeCycleComponentMudule
 import newtrekwang.com.baselibrary.presenter.BasePresenter
 import newtrekwang.com.baselibrary.presenter.view.BaseView
+import org.jetbrains.anko.support.v4.toast
 import javax.inject.Inject
 
 /**
  * Created by dell on 2018/1/30.
  */
 abstract class BaseMvpFragment<T: BasePresenter<*>> :BaseFragment(),BaseView {
-    override fun onError() {
+    override fun onError(text: String) {
 
     }
 
@@ -24,6 +25,10 @@ abstract class BaseMvpFragment<T: BasePresenter<*>> :BaseFragment(),BaseView {
 
     override fun hideLoading() {
 
+    }
+
+    override fun showToast(str: String) {
+        toast(str)
     }
 
     @Inject

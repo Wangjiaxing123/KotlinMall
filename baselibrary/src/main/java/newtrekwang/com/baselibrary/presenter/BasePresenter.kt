@@ -13,7 +13,11 @@ open class BasePresenter<T: BaseView> {
     /**
      * 检查网络是否可用
      */
-    fun canUseNetWord(context: Context):Boolean{
-        return NetWorkUtils.isNetWorkAvailable(context)
+    fun canUseNetWork(context: Context):Boolean{
+        if(NetWorkUtils.isNetWorkAvailable(context)){
+            return true
+        }
+        mView.onError("网络不可用！")
+        return false
     }
 }
