@@ -10,4 +10,6 @@ import rx.Observer
 interface UserService {
     fun register (mobile: String,vertigyCode: String,pwd: String):Observable<Boolean>
     fun login (phone: String,pwd: String,pushId: String):Observable<UserInfo>
+    fun forgetPwd(mobile: String,vertigyCode: String): Observable<Boolean>
+    fun resetPwd(mobile: String,newPwd: String): Observable<Boolean>
 }

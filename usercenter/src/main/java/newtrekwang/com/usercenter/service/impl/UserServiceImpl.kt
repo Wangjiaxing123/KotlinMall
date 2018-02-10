@@ -18,6 +18,7 @@ import javax.inject.Inject
  */
 class UserServiceImpl @Inject constructor():UserService {
 
+
     @Inject
     lateinit var repository: UserResipository
 
@@ -25,8 +26,19 @@ class UserServiceImpl @Inject constructor():UserService {
        return  repository.register(phone = mobile,virifyCode = vertifyCode,pwd = pwd)
                .convertBoolean()
     }
+
     override fun login(phone: String, pwd: String, pushId: String): Observable<UserInfo> {
      return  repository.login(mobile = phone,pwd = pwd,pushId = pushId)
              .convert()
+    }
+
+    override fun forgetPwd(mobile: String, vertigyCode: String): Observable<Boolean> {
+        return repository.forgetPwd(mobile,vertigyCode)
+                .convertBoolean()
+    }
+
+    override fun resetPwd(mobile: String, newPwd: String): Observable<Boolean> {
+        return repository.resetPwd(mobile,newPwd)
+                .convertBoolean()
     }
 }
