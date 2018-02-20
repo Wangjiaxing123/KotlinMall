@@ -62,7 +62,15 @@ dependencies {
     kapt "com.google.dagger:dagger-compiler:$dagger2_version"
 
     //glide
-    compile "com.github.bumptech.glide:glide:$glide_version"
+    api "com.github.bumptech.glide:glide:$glide_version"
+    //Circle ImageView
+    api "de.hdodenhof:circleimageview:${circle_imageView_version}"
+    //Take Photo
+    api "com.jph.takephoto:takephoto_library:${take_photo_version}"
+    //Alert View
+    api "com.bigkoo:alertview:${alert_view_version}"
+
+    api "com.qiniu:qiniu-android-sdk:${qiniu_version}"
 
     //    // Anko Layouts  sdk15, sdk19, sdk21, sdk23 are also available
     //    compile "org.jetbrains.anko:anko-sdk25:$anko_version"
