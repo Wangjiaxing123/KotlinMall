@@ -46,6 +46,13 @@ class   UserResipository @Inject constructor(){
                 .resetPwd(ResetPwdReq(mobile,newPwd))
     }
 
+    /**
+     * 编辑用户
+     */
+    fun editUser(userIcon: String,userName: String,gender: String,sign: String):Observable<BaseResp<UserInfo>>{
+        return RetrofitFactory.instance.create(UserApi::class.java)
+                .editUser(EditUserReq(userIcon,userName,gender,sign))
+    }
 
 
 }

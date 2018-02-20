@@ -8,7 +8,7 @@ import newtrekwang.com.usercenter.data.protocol.UserInfo
  */
 interface UserInfoView : BaseView {
 
-    fun onUserInfoResult(userInfo: UserInfo)
+    fun onEditUserResult(userInfo: UserInfo)
 
     fun onGetUploadToken(token: String)
 }

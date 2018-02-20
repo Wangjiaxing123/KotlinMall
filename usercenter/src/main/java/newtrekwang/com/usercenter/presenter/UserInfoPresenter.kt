@@ -45,4 +45,17 @@ class UserInfoPresenter @Inject constructor() :BasePresenter<UserInfoView>(){
                 },lifecycleProvider)
     }
 
+    fun editUser(userIcon: String,userName: String,userGender: String,userSign: String){
+        if(!canUseNetWork(context)){
+            return
+        }
+        mView.showLoading()
+        userService.editUser(userIcon,userName,userGender,userSign)
+                .execute(object :BaseSubscriber<UserInfo>(mView){
+                    override fun onNext(t: UserInfo) {
+                        mView.onEditUserResult(t)
+                    }
+                },lifecycleProvider)
+    }
+
 }

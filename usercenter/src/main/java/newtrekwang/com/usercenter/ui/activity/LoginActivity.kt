@@ -8,6 +8,7 @@ import newtrekwang.com.baselibrary.common.AppManager
 import newtrekwang.com.baselibrary.ext.eable
 import newtrekwang.com.baselibrary.ui.activity.BaseMvpActivity
 import newtrekwang.com.usercenter.R
+import newtrekwang.com.usercenter.UserPrefsUtils
 import newtrekwang.com.usercenter.data.protocol.UserInfo
 import newtrekwang.com.usercenter.injection.component.DaggerUserComponent
 import newtrekwang.com.usercenter.injection.module.UserModule
@@ -82,6 +83,7 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView, View.OnClick
 
     override fun onLoginResult(userInfo: UserInfo) {
         toast("登录成功！")
+        UserPrefsUtils.putUserInfo(userInfo)
         startActivity<UserInfoActivity>()
     }
 }
