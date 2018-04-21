@@ -1,6 +1,5 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 26
@@ -29,9 +28,6 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    testImplementation 'junit:junit:4.12'
-    api project(':baselibrary')
-}
-repositories {
-    mavenCentral()
+    implementation project(':provider')
+
 }
