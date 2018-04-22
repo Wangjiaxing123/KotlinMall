@@ -1,13 +1,17 @@
 package newtrekwang.com.kotlinmall.ui.fragment
 
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.kotlin.mall.ui.adapter.HomeDiscountAdapter
+import com.kotlin.mall.ui.adapter.TopicAdapter
 import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer
 import newtrekwang.com.baselibrary.ui.fragment.BaseFragment
 import kotlinx.android.synthetic.main.fragment_home.*
+import me.crosswall.lib.coverflow.CoverFlow
 import newtrekwang.com.baselibrary.widgets.BannerImageLoader
 import newtrekwang.com.kotlinmall.*
 
@@ -26,6 +30,18 @@ class HomeFragment :BaseFragment(){
         initView()
         initBanner()
         initNews()
+        initDiscount()
+        initTopic()
+    }
+
+    private fun initDiscount() {
+        val manager = LinearLayoutManager(context)
+        manager.orientation = LinearLayoutManager.HORIZONTAL
+        mHomeDiscountRv.layoutManager = manager
+
+        val discountAdapter  = HomeDiscountAdapter(activity)
+        mHomeDiscountRv.adapter = discountAdapter
+        discountAdapter.setData(mutableListOf(HOME_DISCOUNT_ONE, HOME_DISCOUNT_TWO, HOME_DISCOUNT_THREE, HOME_DISCOUNT_FOUR, HOME_DISCOUNT_FIVE))
     }
 
     private fun initNews() {
@@ -41,6 +57,22 @@ class HomeFragment :BaseFragment(){
         mHomeBanner.setIndicatorGravity(BannerConfig.RIGHT)
         //banner设置方法全部调用完毕时最后调用
         mHomeBanner.start()
+    }
+
+    /*
+        初始化主题
+     */
+    private fun initTopic(){
+        //话题
+        mTopicPager.adapter = TopicAdapter(context, listOf(HOME_TOPIC_ONE, HOME_TOPIC_TWO, HOME_TOPIC_THREE, HOME_TOPIC_FOUR, HOME_TOPIC_FIVE))
+        mTopicPager.currentItem = 1
+        mTopicPager.offscreenPageLimit = 5
+        CoverFlow.Builder()
+                .with(mTopicPager)
+                .scale(0.3f)
+                .pagerMargin(-30.0f)
+                .spaceSize(0.0f)
+                .build()
     }
 
     private fun initView() {

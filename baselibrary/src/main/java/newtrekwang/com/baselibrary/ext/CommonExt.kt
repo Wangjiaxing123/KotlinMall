@@ -3,12 +3,14 @@ package newtrekwang.com.baselibrary.ext
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import com.trello.rxlifecycle.LifecycleProvider
 import com.trello.rxlifecycle.kotlin.bindToLifecycle
 import newtrekwang.com.baselibrary.data.protocal.BaseResp
 import newtrekwang.com.baselibrary.rx.BaseFunc
 import newtrekwang.com.baselibrary.rx.BaseFuncBoolean
 import newtrekwang.com.baselibrary.rx.BaseSubscriber
+import newtrekwang.com.baselibrary.utils.GlideUtils
 import newtrekwang.com.baselibrary.widgets.DefaultTextWatcher
 import rx.Observable
 import rx.Scheduler
@@ -41,6 +43,13 @@ fun <T> Observable<BaseResp<T>>.convert():Observable<T>{
  */
 fun <T> Observable<BaseResp<T>>.convertBoolean():Observable<Boolean>{
   return this.flatMap(BaseFuncBoolean())
+}
+
+/**
+ * ImageView加载网络图片
+ */
+fun ImageView.loadUrl(url: String) {
+    GlideUtils.loadUrlImage(context, url, this)
 }
 
 // 接口方式
